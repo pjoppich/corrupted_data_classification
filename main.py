@@ -44,12 +44,10 @@ F-MNIST, CIFAR-10 performs moderatly and needs further refinement.
 
 This code is written with Google Colab.
 '''
-import sys
-
 # Commented out IPython magic to ensure Python compatibility.
 # Colab and system related
-sys.path.append('/content/nifty')
-
+import os
+import sys
 import nifty6 as ift
 
 ###
@@ -57,6 +55,7 @@ import nifty6 as ift
 # Necessary to convert tensorflow-object (e.g. Neural Network) to Nifty-Operator
 from operators.tensorflow_operator import TensorFlowOperator
 ###
+import tensorflow as tf
 
 # Include path to access helper functions and Mask / Conv Operator
 sys.path.append('nips/helper_functions/')
@@ -65,7 +64,6 @@ import Mask # Masking Operator
 import Conv # Convolution Operator
 
 # Tensorflow
-import tensorflow as tf
 
 # Plotting
 import matplotlib as mpl
@@ -115,9 +113,9 @@ graph = tf.compat.v1.get_default_graph()
 ###
 # Split Training-Dataset into additional validation set.
 XTrain, YTrain, XVal, YVal = split_validation_set(XTrain, YTrain, val_perc=0.2)
-sys.path.append('nips/NNs')
 # Read in model#
 ######## Path needs to be adjusted according to the location of NN! ########
+
 if dataset=='mnist': 
   Decoder_tf = tf.keras.models.load_model('/nips/NNs/MNIST/pretrained_supervised_ae10/Decoder', compile=False)
   Encoder_tf = tf.keras.models.load_model('/nips/NNs/MNIST/pretrained_supervised_ae10/Encoder', compile=False)
@@ -463,3 +461,4 @@ for i in range(np.int(np.floor(np.sqrt(len(latent_posteriors))))):
       break
 fig = plt.gcf()
 fig.suptitle("All {} Samples drawn from Posterior Distribution".format(len(latent_posteriors), fontsize=14))
+
