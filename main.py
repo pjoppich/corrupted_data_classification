@@ -115,7 +115,7 @@ graph = tf.compat.v1.get_default_graph()
 ###
 # Split Training-Dataset into additional validation set.
 XTrain, YTrain, XVal, YVal = split_validation_set(XTrain, YTrain, val_perc=0.2)
-
+sys.path.append('nips/NNs')
 # Read in model#
 ######## Path needs to be adjusted according to the location of NN! ########
 if dataset=='mnist': 
