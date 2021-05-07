@@ -53,16 +53,18 @@ import nifty6 as ift
 ###
 # [1]
 # Necessary to convert tensorflow-object (e.g. Neural Network) to Nifty-Operator
+sys.path.append('nips/helper_functions/')
+
+
 from operators.tensorflow_operator import TensorFlowOperator
 ###
 import tensorflow as tf
-
 # Include path to access helper functions and Mask / Conv Operator
 sys.path.append('nips/helper_functions/')
 from helper_functions import clear_axis, gaussian, get_cmap, info_text, get_noise, rotation, split_validation_set, dropout_uncertainty
 import Mask # Masking Operator
 import Conv # Convolution Operator
-
+sys.path.remove
 # Tensorflow
 
 # Plotting
@@ -114,15 +116,14 @@ graph = tf.compat.v1.get_default_graph()
 # Split Training-Dataset into additional validation set.
 XTrain, YTrain, XVal, YVal = split_validation_set(XTrain, YTrain, val_perc=0.2)
 # Read in model#
-######## Path needs to be adjusted according to the location of NN! ########
 
 if dataset=='mnist': 
-  Decoder_tf = tf.keras.models.load_model('/nips/NNs/MNIST/pretrained_supervised_ae10/Decoder', compile=False)
-  Encoder_tf = tf.keras.models.load_model('/nips/NNs/MNIST/pretrained_supervised_ae10/Encoder', compile=False)
+  Decoder_tf = tf.keras.models.load_model('./nips/NNs/MNIST/pretrained_supervised_ae10/Decoder', compile=False)
+  Encoder_tf = tf.keras.models.load_model('./nips/NNs/MNIST/pretrained_supervised_ae10/Encoder', compile=False)
   
 if dataset=='fashion_mnist': 
-  Decoder_tf = tf.keras.models.load_model('nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Decoder', compile=False)
-  Encoder_tf = tf.keras.models.load_model('nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Encoder', compile=False)
+  Decoder_tf = tf.keras.models.load_model('./nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Decoder', compile=False)
+  Encoder_tf = tf.keras.models.load_model('./nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Encoder', compile=False)
 
 # Read in Classifier
 #Classifier_tf = tf.keras.models.load_model('drive/My Drive/masterthesis/github/NNs/MNIST/pretrained_classifier/Classifier', compile=False)
@@ -442,8 +443,7 @@ plt.subplot(3, 4, 8)
 plt.pie([float(v) for v in counts_dm.values()], labels=[float(k) for k in counts_dm.keys()],autopct='%1.1f%%', colors=pie_colors[list(counts_dm.keys())], textprops={'fontsize': 4})
 plt.xlabel('Class. Post. $d_M$', fontsize=8)
 
-plt.savefig('drive/My Drive/masterthesis/results/temporary/{}.png'.format(np.where(mahalanobis_distance == np.min(mahalanobis_distance))[0][0]))
-plt.show()
+plt.savefig('./nips/results/{}'.format('example_results'))
 
 # Visualize reconstructions of all posterior samples. Output dependent on n_samples.
 
@@ -460,5 +460,5 @@ for i in range(np.int(np.floor(np.sqrt(len(latent_posteriors))))):
     else:
       break
 fig = plt.gcf()
-fig.suptitle("All {} Samples drawn from Posterior Distribution".format(len(latent_posteriors), fontsize=14))
-
+plt.savefig('./nips/results/{}'.format('example_samples'))
+print('Done. Results saved to results-directory.')
