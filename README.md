@@ -1,5 +1,6 @@
-# Bayesian Inference with Neural Networks
-## Reconstruction and Classification of Corrupted Data
-* Welcome to the Github repository of my master's thesis "Bayesian Inference with Neural Networks: Reconstruction and Classification of Corrupted Data". *
-
-Code will be uploaded by January 2021.
+# Classification and Uncertainty Quantification of Corrupted Data using Semi-Supervised Autoencoders
+* Welcome to the Github repository of the paper above, submitted at NeurIPS 2021. 
+* Instructions: 
+* 1. Clone Repository
+* 2. Install nifty
+* 3. run main.py
