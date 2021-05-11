@@ -10,9 +10,6 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-# Copyright(C) 2020 Max-Planck-Society
-# Author: Jakob Knollmueller
 
 import nifty6 as ift
 import tensorflow.compat.v1 as tf
