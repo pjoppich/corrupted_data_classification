@@ -93,12 +93,12 @@ XTrain, YTrain, XVal, YVal = split_validation_set(XTrain, YTrain, val_perc=0.2)
 # Read in model#
 
 if dataset=='mnist': 
-  Decoder_tf = tf.keras.models.load_model('./nips/NNs/MNIST/pretrained_supervised_ae10/Decoder', compile=False)
-  Encoder_tf = tf.keras.models.load_model('./nips/NNs/MNIST/pretrained_supervised_ae10/Encoder', compile=False)
+  Decoder_tf = tf.keras.models.load_model('./corrupted_data_classification/NNs/MNIST/pretrained_supervised_ae10/Decoder', compile=False)
+  Encoder_tf = tf.keras.models.load_model('./corrupted_data_classification/NNs/MNIST/pretrained_supervised_ae10/Encoder', compile=False)
   
 if dataset=='fashion_mnist': 
-  Decoder_tf = tf.keras.models.load_model('./nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Decoder', compile=False)
-  Encoder_tf = tf.keras.models.load_model('./nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Encoder', compile=False)
+  Decoder_tf = tf.keras.models.load_model('./corrupted_data_classification/NNs/Fashion-MNIST/pretrained_supervised_ae10/Decoder', compile=False)
+  Encoder_tf = tf.keras.models.load_model('./corrupted_data_classification/NNs/Fashion-MNIST/pretrained_supervised_ae10/Encoder', compile=False)
 
 # Define ift-space
 # position_space: Also data-space. Equal to the vectorized image dimension. For MNIST-Images, the position-space's
@@ -350,8 +350,6 @@ for i in range(n_scores - 1):
 overlapping_nn = dict(zip(keys_nn, values_nn))
 overlapping_dm = dict(zip(keys_dm, values_dm))
 
-#np.save('drive/My Drive/masterthesis/results/temporary/{}-{}.npy'.format(p, overlapping_dm['Measure']), overlapping_dm) 
-#np.save('drive/My Drive/masterthesis/results/temporary/{}-{}.npy'.format(p, overlapping_nn['Measure']), overlapping_nn)
 
 min = np.min([posterior_mean.val])
 max = np.max([posterior_mean.val])
@@ -414,7 +412,7 @@ plt.subplot(3, 4, 8)
 plt.pie([float(v) for v in counts_dm.values()], labels=[float(k) for k in counts_dm.keys()],autopct='%1.1f%%', colors=pie_colors[list(counts_dm.keys())], textprops={'fontsize': 4})
 plt.xlabel('Class. Post. $d_M$', fontsize=8)
 
-plt.savefig('./nips/results/{}'.format('example_results'))
+plt.savefig('./corrupted_data_classification/results/{}'.format('example_results'))
 
 # Visualize reconstructions of all posterior samples. Output dependent on n_samples.
 
@@ -431,5 +429,5 @@ for i in range(np.int(np.floor(np.sqrt(len(latent_posteriors))))):
     else:
       break
 fig = plt.gcf()
-plt.savefig('./nips/results/{}'.format('example_samples'))
+plt.savefig('./corrupted_data_classification/results/{}'.format('example_samples'))
 print('Done. Results saved to results-directory.')
