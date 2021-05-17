@@ -1,6 +1,3 @@
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
 import pandas as pd
 import numpy as np
 import math
@@ -86,8 +83,7 @@ def rotation(image, img_shape, angle):
     
 def split_validation_set(XTrain, YTrain, val_perc):
     '''
-    Permutation of Training Dataset is taken from code in 
-    an article pusblished on Medium: 
+    Permutation of Training Dataset is inspired by an article pusblished on Medium: 
     https://medium.com/@mjbhobe/mnist-digits-classification-with-keras-ed6c2374bd0e
     Author: BhobeÃƒÆ’Ã‚Â©, Manish
     Date of Publication: 29.09.2018
@@ -119,22 +115,4 @@ def split_validation_set(XTrain, YTrain, val_perc):
     YTrain = YTrain[val_count:]
     
     return XTrain, YTrain, XVal, YVal
-    
-def dropout_uncertainty(model, data):
-    data = torch.Tensor(np.reshape(data, [1, 1, 28, 28]))
-    model.train()
-    T = 50
-    output_list = []
-    with torch.no_grad():
-                for i in range(T):
-                    #output_list.append(torch.unsqueeze(F.softmax(model(data), dim=1), dim=0))
-                    output_list.append(torch.unsqueeze(model(data), dim=0))
-                output_mean = torch.cat(output_list, 0).mean(dim=0)
-                output_variance = torch.cat(output_list, 0).var(dim=0).mean().item()
-                output_variance = torch.cat(output_list, 0).var(dim=0)
-                confidence = output_mean.data.cpu().numpy().max()
-                predict = output_mean.data.cpu().numpy().argmax()
-                predict = output_mean
-                return predict, output_variance
-
 
