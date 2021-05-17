@@ -6,7 +6,7 @@ Often parametric and non-parametric classifiers have to deal with real-world dat
 
 `git clone https://github.com/pjoppich/corrupted_data_classification.git`
 
-2. Install dependencies
+2. Install dependencies (assuming pip3 and python3 is installed)
 
 `pip3 install --user git+https://gitlab.mpcdf.mpg.de/ift/nifty.git@NIFTy_6`
 
