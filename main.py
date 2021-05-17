@@ -196,7 +196,7 @@ M = Mask.no_mask(position_space=position_space)
 N, n = get_noise(noise_level=1, position_space=position_space, seed=10)
 
 # 3. Convolution
-C = Conv.gaussian_blur(7, 1, position_space=position_space) # sobel, edge_detection, 
+#C = Conv.gaussian_blur(7, 1, position_space=position_space) # sobel, edge_detection, 
 
 # 4. Rotation (not included in data-model, reconstruction may be poor!)
 # Specify angle in degrees (clockwise rotation)
