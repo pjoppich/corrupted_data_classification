@@ -7,7 +7,7 @@ Often parametric and non-parametric classifiers have to deal with real-world dat
 `git clone https://github.com/pjoppich/corrupted_data_classification.git`
 
 2. Install dependencies
-
+`pip3 install --user git+https://gitlab.mpcdf.mpg.de/ift/nifty.git@NIFTy_6`
 `pip3 install -r ./corrupted_data_classification/requirements.txt --use-deprecated=legacy-resolver`
 
 3. Run code
