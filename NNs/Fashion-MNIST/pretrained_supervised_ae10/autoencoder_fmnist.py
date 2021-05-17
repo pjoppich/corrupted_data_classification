@@ -1,25 +1,40 @@
-
 # -*- coding: utf-8 -*-
 # Commented out IPython magic to ensure Python compatibility.
 # %matplotlib inline
-
-import tensorflow as tf
-import matplotlib.pyplot as plt
-import random
-import sklearn as sk
-from sklearn import decomposition
-import numpy as np
-
+# Commented out IPython magic to ensure Python compatibility.
 # Colab and system related
 import os
-import time
-
 import sys
-sys.path.append('./corrupted_data_classification/helper_functions/')
-from helper_functions import split_validation_set
-#GPU
+###
+# Necessary to convert tensorflow-object (e.g. Neural Network) to Nifty-Operator
+sys.path.append('corrupted_data_classification/helper_functions/')
 
+###
 import tensorflow as tf
+# Include path to access helper functions and Mask / Conv Operator
+sys.path.append('corrupted_data_classification/helper_functions/')
+from helper_functions import clear_axis, gaussian, get_cmap, info_text, get_noise, rotation, split_validation_set
+import Mask # Masking Operator
+import Conv # Convolution Operator
+sys.path.remove
+# Tensorflow
+
+# Plotting
+import matplotlib as mpl
+import matplotlib.pyplot as plt
+import matplotlib.cm as cm 
+import matplotlib.pyplot as plt
+# %matplotlib inline
+plt.rcParams['figure.dpi'] = 200 # 200 e.g. is really fine, but slower
+
+# Numerics
+import random
+import numpy as np
+from sklearn.neighbors import KernelDensity
+from scipy.stats import multivariate_normal
+import sklearn as sk
+from sklearn import decomposition
+
 
 # Load MNIST Dataset
 mnist = tf.keras.datasets.fashion_mnist
