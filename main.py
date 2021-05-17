@@ -412,7 +412,7 @@ plt.subplot(3, 4, 8)
 plt.pie([float(v) for v in counts_dm.values()], labels=[float(k) for k in counts_dm.keys()],autopct='%1.1f%%', colors=pie_colors[list(counts_dm.keys())], textprops={'fontsize': 4})
 plt.xlabel('Class. Post. $d_M$', fontsize=8)
 
-plt.savefig('./corrupted_data_classification/results/{}'.format('example_results'))
+plt.savefig('./corrupted_data_classification/{}'.format('example_results'))
 
 # Visualize reconstructions of all posterior samples. Output dependent on n_samples.
 
@@ -429,5 +429,5 @@ for i in range(np.int(np.floor(np.sqrt(len(latent_posteriors))))):
     else:
       break
 fig = plt.gcf()
-plt.savefig('./corrupted_data_classification/results/{}'.format('example_samples'))
-print('Done. Results saved to results-directory.')
+plt.savefig('./corrupted_data_classification/{}'.format('example_samples'))
+print('Done. Results saved.')
