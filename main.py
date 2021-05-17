@@ -1,15 +1,7 @@
 # -*- coding: utf-8 -*-
 '''
 
-Software from various developers is used in this algorithm. Only code that is not implemented 
-in a publicly available library is specifically pointed out. Respective sections are marked
-with the following indices:
-
-[1] ImportanceOfBeingErnest [https://stackoverflow.com/users/4124317/importanceofbeingernest]: Random Mask
-[2] Salehi, Ali [https://github.com/alisaaalehi]: Convolution formulated as Matrix Multiplication
-[3] BhobeÃ©, Manish, https://medium.com/@mjbhobe/mnist-digits-classification-with-keras-ed6c2374bd0e: Cutting out Validation Set from Training Data
-
-Moreover, the following libraries are used:
+The following libraries are used:
 [1] NIFTy â€“ Numerical Information Field Theory, https://gitlab.mpcdf.mpg.de/ift/nifty
 [2] NumPy - Numerical Python, https://numpy.org/
 [3] Tensorflow - Tensorflow, https://www.tensorflow.org/
@@ -20,11 +12,10 @@ Moreover, the following libraries are used:
 [8] sklearn - https://scikit-learn.org/
 
 Within helper_functions.py, Conv.py and Mask.py, the following libraries are used (these may be obsolete and omittable for the core task):
-[9] torch - PyTorch, https://pytorch.org (only necessary for Y. Gal comparison)
-[10] PIL - Pillow (only Image-function), https://pillow.readthedocs.io/en/stable/
-[11] warnings - warnings, https://docs.python.org/3/library/warnings.html
-[12] random - random, https://docs.python.org/3/library/random.html
-[13] skimage - scikit-image (only resize-function), https://scikit-image.org
+[9] PIL - Pillow (only Image-function), https://pillow.readthedocs.io/en/stable/
+[10] warnings - warnings, https://docs.python.org/3/library/warnings.html
+[11] random - random, https://docs.python.org/3/library/random.html
+[12] skimage - scikit-image (only resize-function), https://scikit-image.org
 
 All Neural Networks were built with Keras and saved as tensorflow-objects. Neural Netowrks are optimized for MNIST, good performance is observed for
 F-MNIST.
@@ -36,7 +27,6 @@ import sys
 import nifty6 as ift
 
 ###
-# [1]
 # Necessary to convert tensorflow-object (e.g. Neural Network) to Nifty-Operator
 sys.path.append('nips/helper_functions/')
 
