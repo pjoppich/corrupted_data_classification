@@ -16,13 +16,13 @@ Often parametric and non-parametric classifiers have to deal with real-world dat
 
 `python3 ./corrupted_data_classification/main.py`
 
-3. Run code to train and test neural networks (note that this will overwrite the existing neural networks)
+4. (Optional) Run code to train and test neural networks (note that this will overwrite the existing neural networks)
 
-*MNIST:
+- MNIST:
 
 `python3 ./corrupted_data_classification/NNs/MNIST/pretrained_supervised_ae10/autoencoder.py`
 
-*Fashion-MNIST
+- Fashion-MNIST:
 
 `python3 ./corrupted_data_classification/NNs/Fashion-MNIST/pretrained_supervised_ae10/autoencoder.py`
 
