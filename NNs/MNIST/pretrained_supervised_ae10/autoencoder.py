@@ -12,9 +12,6 @@ import numpy as np
 import sys
 sys.path.append('./corrupted_data_classification/helper_functions/')
 from helper_functions import split_validation_set
-#GPU
-
-import tensorflow as tf
 
 # Load MNIST Dataset
 mnist = tf.keras.datasets.mnist
