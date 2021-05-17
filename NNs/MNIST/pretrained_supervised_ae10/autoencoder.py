@@ -9,10 +9,6 @@ import sklearn as sk
 from sklearn import decomposition
 import numpy as np
 
-# Colab and system related
-import os
-import time
-
 import sys
 sys.path.append('./corrupted_data_classification/helper_functions/')
 from helper_functions import split_validation_set
