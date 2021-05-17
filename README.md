@@ -4,13 +4,12 @@ Often parametric and non-parametric classifiers have to deal with real-world dat
 ## Instructions. 
 1. Clone Repository
 
-`<git clone https://github.com/pjoppich/nips.git>`
+`<git clone https://github.com/pjoppich/corrupted_data_classification.git>`
 
-2. Install [NIFTy](https://gitlab.mpcdf.mpg.de/ift/nifty)
+2. Install dependencies
 
-`<sudo apt-get install git python3 python3-pip python3-dev>`
-`<pip3 install --user git+https://gitlab.mpcdf.mpg.de/ift/nifty.git@NIFTy_6>`
+`<pip3 install -r ./corrupted_data_classification/requirements.txt --use-deprecated=legacy-resolver>`
 
 3. Run code
 
-`<python3 ./nips/main.py>`
+`<python3 ./corrupted_data_classification/main.py>`
