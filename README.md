@@ -17,9 +17,13 @@ Often parametric and non-parametric classifiers have to deal with real-world dat
 `python3 ./corrupted_data_classification/main.py`
 
 3. Run code to retrain neural networks (note that this will overwrite the existing neural networks)
+
 *MNIST:
+
 `python3 ./corrupted_data_classification/NNs/MNIST/pretrained_supervised_ae10/autoencoder.py`
+
 *Fashion-MNIST
+
 `python3 ./corrupted_data_classification/NNs/Fashion-MNIST/pretrained_supervised_ae10/autoencoder.py`
 
 
