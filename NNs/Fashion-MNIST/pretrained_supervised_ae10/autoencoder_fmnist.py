@@ -15,7 +15,7 @@ import os
 import time
 
 import sys
-sys.path.append('nips/helper_functions/')
+sys.path.append('./corrupted_data_classification/helper_functions/')
 from helper_functions import split_validation_set
 #GPU
 
@@ -83,8 +83,8 @@ with tf.device('/device:GPU:0'):
   results = model.fit(XTrain, [XTrain, YTrain], epochs=25)
 model.evaluate(XTest, [XTest, YTest], verbose=2)
 # Save trained Decoder and trained Encoder
-Decoder.save('./nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Decoder/', save_format='tf')
-Encoder.save('./nips/NNs/Fashion-MNIST/pretrained_supervised_ae10/Encoder/', save_format='tf')
+Decoder.save('./corrupted_data_classification/NNs/Fashion-MNIST/pretrained_supervised_ae10/Decoder/', save_format='tf')
+Encoder.save('./corrupted_data_classification/NNs/Fashion-MNIST/pretrained_supervised_ae10/Encoder/', save_format='tf')
 
 def plot_pca(Encoder, input_data):
     # Get latent space representation (predict samples up to 'bottleneck')
