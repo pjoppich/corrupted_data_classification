@@ -16,7 +16,7 @@ Often parametric and non-parametric classifiers have to deal with real-world dat
 
 `python3 ./corrupted_data_classification/main.py`
 
-3. Run code to retrain neural networks (note that this will overwrite the existing neural networks)
+3. Run code to train and test neural networks (note that this will overwrite the existing neural networks)
 
 *MNIST:
 
