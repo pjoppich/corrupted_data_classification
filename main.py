@@ -28,14 +28,14 @@ import nifty6 as ift
 
 ###
 # Necessary to convert tensorflow-object (e.g. Neural Network) to Nifty-Operator
-sys.path.append('nips/helper_functions/')
+sys.path.append('corrupted_data_classification/helper_functions/')
 
 
 from operators.tensorflow_operator import TensorFlowOperator
 ###
 import tensorflow as tf
 # Include path to access helper functions and Mask / Conv Operator
-sys.path.append('nips/helper_functions/')
+sys.path.append('corrupted_data_classification/helper_functions/')
 from helper_functions import clear_axis, gaussian, get_cmap, info_text, get_noise, rotation, split_validation_set, dropout_uncertainty
 import Mask # Masking Operator
 import Conv # Convolution Operator
